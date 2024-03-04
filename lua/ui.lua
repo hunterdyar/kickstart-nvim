@@ -34,12 +34,30 @@ return {
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  -- transparency handled by plugins
+  { 'tribela/vim-transparent' },
   -- gutter marks
   {
     'chentoast/marks.nvim',
     opts = {
       builtin_marks = { '.', '<', '>', '^', "'", '"', '}', '{' },
       sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+    },
+  },
+  -- cheatsheet
+  {
+    'sudormrfbin/cheatsheet.nvim',
+    requires = {
+      { 'nvim-telescope/telescope.nvim' },
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+    config = {
+      bundled_cheatsheets = {
+        enabled = { 'default' },
+        disabled = { 'nerd-fonts' },
+      },
+      include_only_installed_plugins = true,
     },
   },
 }
