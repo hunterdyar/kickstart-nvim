@@ -13,6 +13,8 @@ return {
     end,
   },
   --color schemes
+  { 'morhetz/gruvbox' },
+  { 'sainnhe/everforest' },
   { 'catppuccin/nvim' },
   { 'rebelot/kanagawa.nvim' },
   { 'folke/tokyonight.nvim' },
@@ -31,5 +33,13 @@ return {
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
     end,
+  },
+  -- gutter marks
+  {
+    'chentoast/marks.nvim',
+    opts = {
+      builtin_marks = { '.', '<', '>', '^', "'", '"', '}', '{' },
+      sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+    },
   },
 }
