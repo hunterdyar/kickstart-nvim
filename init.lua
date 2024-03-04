@@ -97,10 +97,9 @@ vim.g.maplocalleader = ' '
 
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, for help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
-
+-- relative line numbers, for help with jumping.
+vim.opt.relativenumber = true
+--
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -285,6 +284,7 @@ require('lazy').setup {
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -370,6 +370,7 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -718,23 +719,6 @@ require('lazy').setup {
           { name = 'path' },
         },
       }
-    end,
-  },
-
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'folke/tokyonight.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- Load the colorscheme here
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like
-      vim.cmd.hi 'Comment gui=none'
     end,
   },
 
