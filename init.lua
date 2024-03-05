@@ -155,6 +155,9 @@ vim.g.loaded_netrwPlugin = 1
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+--alias Q to be q! because of my keyboard pressing the wrong layer key, i mess up the ! a lot, and shift+q is all on left hand.
+vim.cmd 'command! Q q!'
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -800,9 +803,9 @@ require('lazy').setup {
   },
   --vim go. It has snippets and things that I am not sure if mason setup when getting the lsp and all that?
   --honestly, idk if we need this...
-  {
-    'fatih/vim-go',
-  },
+  --{
+  --'fatih/vim-go',
+  --},
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- put them in the right spots if you want.
@@ -812,6 +815,7 @@ require('lazy').setup {
   --  Here are some example plugins that I've included in the kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   require 'ui',
+  require 'features',
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
 
