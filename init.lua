@@ -652,8 +652,15 @@ require('lazy').setup {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
+      --command line suggestions
+      'hrsh7th/cmp-cmdline',
+      --fish shell suggestions
+      'mtoohey31/cmp-fish',
+      -- crates.io dependencies
+      'Saecki/crates.nvim',
 
+      -- paths of files and folders
+      'hrsh7th/cmp-path',
       -- If you want to add a bunch of pre-configured snippets,
       --    you can use this plugin to help you. It even has snippets
       --    for various frameworks/libraries/etc. but you will have to
@@ -671,6 +678,11 @@ require('lazy').setup {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
+        },
+        window = {
+          documenation = cmp.config.window.bordered {
+            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+          },
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
 
@@ -786,7 +798,11 @@ require('lazy').setup {
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
-
+  --vim go. It has snippets and things that I am not sure if mason setup when getting the lsp and all that?
+  --honestly, idk if we need this...
+  {
+    'fatih/vim-go',
+  },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- put them in the right spots if you want.
